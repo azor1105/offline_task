@@ -33,7 +33,7 @@ class LocalDataBase {
       ${CachedNBFields.cbPrice} $textType,
       ${CachedNBFields.code} $textType,
       ${CachedNBFields.title} $textType,
-      ${CachedNBFields.date} $textType,
+      ${CachedNBFields.date} $textType
     )
     ''');
   }
