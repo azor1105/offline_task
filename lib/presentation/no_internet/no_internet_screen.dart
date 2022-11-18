@@ -3,12 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
 import 'package:offline_task/cubit/connectivity/connectivity_cubit.dart';
+import 'package:offline_task/cubit/cubit/currency_cubit.dart';
 import 'package:offline_task/utils/icons.dart';
 
 class NoInternetScreen extends StatelessWidget {
-  const NoInternetScreen({Key? key})
-      : super(key: key);
-
+  const NoInternetScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,8 +28,8 @@ class NoInternetScreen extends StatelessWidget {
             BlocListener<ConnectivityCubit, ConnectivityState>(
               listener: (context, state) {
                 if (state.connectivityResult != ConnectivityResult.none) {
-
                   Navigator.pop(context);
+                  context.read<CurrencyCubit>().getCurrencies();
                 }
               },
               child: const SizedBox(),
