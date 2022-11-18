@@ -44,10 +44,19 @@ class LocalDataBase {
     return users.map((e) => CachedCurrencyModel.fromJson(json: e)).toList();
   }
 
-
-
   static Future<void> deleteAllCurrency() async {
     final db = await getInstance.database;
     await db.delete(CachedNBFields.tableName);
+  }
+
+  static Future<void> insertUser(
+      {required List<CachedCurrencyModel> currencies}) async {
+    final db = await getInstance.database;
+    for (var currency in currencies) {
+      await db.insert(
+        CachedNBFields.tableName,
+        currency.toJson(),
+      );
+    }
   }
 }
