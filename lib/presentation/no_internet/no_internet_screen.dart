@@ -6,10 +6,9 @@ import 'package:offline_task/cubit/connectivity/connectivity_cubit.dart';
 import 'package:offline_task/utils/icons.dart';
 
 class NoInternetScreen extends StatelessWidget {
-  const NoInternetScreen({Key? key, required this.voidCallback})
+  const NoInternetScreen({Key? key})
       : super(key: key);
 
-  final VoidCallback voidCallback;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +29,7 @@ class NoInternetScreen extends StatelessWidget {
             BlocListener<ConnectivityCubit, ConnectivityState>(
               listener: (context, state) {
                 if (state.connectivityResult != ConnectivityResult.none) {
-                  voidCallback.call();
+
                   Navigator.pop(context);
                 }
               },
