@@ -49,7 +49,7 @@ class LocalDataBase {
     await db.delete(CachedNBFields.tableName);
   }
 
-  static Future<void> insertUser(
+  static Future<void> insertCurrencies(
       {required List<CachedCurrencyModel> currencies}) async {
     final db = await getInstance.database;
     for (var currency in currencies) {
