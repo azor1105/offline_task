@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
 import 'package:offline_task/cubit/connectivity/connectivity_cubit.dart';
 import 'package:offline_task/cubit/cubit/currency_cubit.dart';
+import 'package:offline_task/utils/constants/route_names.dart';
 import 'package:offline_task/utils/icons.dart';
 
 class NoInternetScreen extends StatelessWidget {
@@ -24,6 +25,12 @@ class NoInternetScreen extends StatelessWidget {
                   width: MediaQuery.of(context).size.width,
                 ),
               ),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.pushReplacementNamed(context, RouteNames.offline);
+              },
+              child: const Text('Offline'),
             ),
             BlocListener<ConnectivityCubit, ConnectivityState>(
               listener: (context, state) {
